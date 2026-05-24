@@ -32,7 +32,7 @@ Vision Sync watches your facial expressions and surroundings, then generates a c
 
 - Node.js (v18 or higher)
 - npm or yarn
-- **Google AI Studio API key** with Lyria RealTime access (experimental allowlist required)
+- **Google Gemini AI API key** with Lyria RealTime access (experimental allowlist required)
 - Webcam/microphone permissions
 
 ## 🚀 Quick Start
@@ -50,9 +50,8 @@ npm install
 Create a `.env` file in the root directory:
 
 ```env
-VITE_GEMINI_API_KEY=your_google_ai_studio_key_here
-# or
-API_KEY=your_google_ai_studio_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
+
 ```
 
 > **Note**: Lyria RealTime is experimental and requires allowlisting. Without API access, the app will fall back to local procedural music generation.
@@ -60,6 +59,7 @@ API_KEY=your_google_ai_studio_key_here
 ### 3. Run Locally
 
 ```bash
+npm i
 npm run dev
 ```
 
@@ -76,14 +76,6 @@ The app will open at `http://localhost:5173`
    - Your current emotion
    - Real-time facial blendshapes
    - Active audio profile
-
-## 🎮 Controls
-
-| Action | Button |
-|--------|--------|
-| Start/Stop | START SYSTEM / STOP SYSTEM |
-| View Info | ℹ️ icon (top right) |
-| Close Error | Dismiss button |
 
 ## 📁 Project Structure
 
@@ -109,16 +101,6 @@ Camera → [Object Detection + Face Tracking]
        → Audio Output
 ```
 
-## 🔧 Troubleshooting
-
-**"Camera access denied"** - Allow camera permissions in your browser, then refresh
-
-**"Lyria API error"** - The app falls back to local synth; music still works but may be less contextual
-
-**Models won't load** - Check internet connection; models download from CDNs on first run
-
-**No sound** - Click anywhere on the page to initialize Web Audio (browser autoplay policies)
-
 ## 🧪 Browser Support
 
 - Chrome/Edge (recommended)
@@ -131,17 +113,3 @@ Camera → [Object Detection + Face Tracking]
 - Face data is never saved or transmitted
 - Lyria API calls send only text prompts (no images/video)
 - Procedural synth works completely offline after initial model download
-
-## 🤝 Contributing
-
-Issues and PRs welcome! This is an experimental project exploring real-time multimodal AI.
-
-## 📄 License
-
-MIT
-
----
-
-**Built with 🎵 and 🤖**  
-*"Your face is an instrument"*
-```
