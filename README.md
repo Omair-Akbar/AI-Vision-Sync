@@ -1,4 +1,4 @@
-```markdown
+
 # Vision Sync 🎵
 
 **Real-time AI music generation from your camera feed** — transforms what you see and how you feel into ambient soundscapes.
@@ -59,7 +59,6 @@ GEMINI_API_KEY=your_gemini_api_key_here
 ### 3. Run Locally
 
 ```bash
-npm i
 npm run dev
 ```
 

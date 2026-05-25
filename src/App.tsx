@@ -1059,7 +1059,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-[100dvh] w-full bg-black text-white flex overflow-hidden font-mono relative">
+    <div className="h-dvh w-full bg-black text-white flex overflow-hidden font-mono relative">
       {/* Background Camera Feed */}
       <div className="absolute inset-0 z-0">
         {!isCameraActive && (
@@ -1077,16 +1077,16 @@ export default function App() {
         />
         <canvas
           ref={canvasRef}
-          className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-500 z-[15] ${isCameraActive ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-500 z-15 ${isCameraActive ? 'opacity-100' : 'opacity-0'}`}
         />
         {/* Vignette & Scanlines */}
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] z-10" />
-        <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] z-10" />
+        <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-size-[100%_4px] z-10" />
         
         {/* Decorative HUD Elements */}
         <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center overflow-hidden">
-          <div className="w-[150vw] h-[150vw] sm:w-[600px] sm:h-[600px] border border-white/10 rounded-full border-dashed animate-[spin_60s_linear_infinite] shrink-0" />
-          <div className="absolute w-[100vw] h-[100vw] sm:w-[400px] sm:h-[400px] border border-white/5 rounded-full animate-[spin_40s_linear_infinite_reverse] shrink-0" />
+          <div className="w-[150vw] h-[150vw] sm:w-150 sm:h-150 border border-white/10 rounded-full border-dashed animate-[spin_60s_linear_infinite] shrink-0" />
+          <div className="absolute w-screen h-screen sm:w-100 sm:h-100 border border-white/5 rounded-full animate-[spin_40s_linear_infinite_reverse] shrink-0" />
           <div className="absolute w-px h-full bg-white/5" />
           <div className="absolute h-px w-full bg-white/5" />
         </div>
@@ -1100,7 +1100,7 @@ export default function App() {
           <div className="contents lg:flex lg:flex-col lg:justify-between w-full lg:w-80 pointer-events-none shrink-0">
             
             {/* Top Left: System Status & Mobile Controls */}
-            <div className="flex flex-col gap-4 shrink-0 order-1 lg:order-none pointer-events-auto">
+            <div className="flex flex-col gap-4 shrink-0 order-1 lg:order-0 pointer-events-auto">
               
               {/* Status */}
               <div className="flex flex-col items-start gap-4 shrink-0">
@@ -1168,11 +1168,11 @@ export default function App() {
               </div>
 
               {/* Mobile Camera Viewport Spacer */}
-              <div className="h-[45vh] landscape:h-[100vh] lg:hidden pointer-events-none shrink-0" />
+              <div className="h-[45vh] landscape:h-screen lg:hidden pointer-events-none shrink-0" />
             </div>
 
             {/* Bottom Left: Scan & Affective */}
-            <div className="flex flex-col landscape:flex-row lg:landscape:flex-col gap-4 shrink-0 lg:mt-auto order-4 lg:order-none pointer-events-auto">
+            <div className="flex flex-col landscape:flex-row lg:landscape:flex-col gap-4 shrink-0 lg:mt-auto order-4 lg:order-0 pointer-events-auto">
               
               {/* Middle Left: Face Scanner */}
               <div className="flex flex-col justify-center shrink-0 landscape:flex-1 lg:landscape:flex-none">
@@ -1216,7 +1216,7 @@ export default function App() {
                           <span className="text-white/60 uppercase tracking-wider">{item.label}</span>
                           <span className="font-bold text-white/90">{isNaN(item.value) ? 0 : (item.value * 100).toFixed(0)}%</span>
                         </div>
-                        <div className="h-[2px] bg-white/10 overflow-hidden">
+                        <div className="h-0.5 bg-white/10 overflow-hidden">
                           <motion.div 
                             className="h-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]"
                             initial={{ width: 0 }}
@@ -1237,7 +1237,7 @@ export default function App() {
           <div className="contents lg:flex lg:flex-col lg:justify-between lg:items-end w-full lg:w-80 pointer-events-none shrink-0 mt-0">
             
             {/* Top Right: Controls */}
-            <div className="hidden lg:flex flex-col items-end gap-4 shrink-0 order-none pointer-events-auto">
+            <div className="hidden lg:flex flex-col items-end gap-4 shrink-0 order-0 pointer-events-auto">
               <button
                 onClick={() => { playHoverSound(); isCameraActive ? stopSession(true) : startSession(); }}
                 onMouseEnter={playHoverSound}
@@ -1259,7 +1259,7 @@ export default function App() {
             </div>
 
             {/* Bottom Right: Entities & Audio */}
-            <div className="flex flex-col gap-4 shrink-0 w-full order-2 lg:order-none pointer-events-auto">
+            <div className="flex flex-col gap-4 shrink-0 w-full order-2 lg:order-0 pointer-events-auto">
               
               {/* Detected Entities */}
               <div className="order-1 lg:order-2 w-full bg-black/40 backdrop-blur-md border border-white/20 p-5 shadow-[0_0_30px_rgba(0,0,0,0.8)]" title="Objects detected in the camera view">
